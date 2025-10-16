@@ -10,18 +10,16 @@ Storage is in-memory; no external database is required.
 Note: Other features (add/remove items, discount codes, shipping, totals) are outlined as future work to keep the scope aligned with the time limit.
 
 ## Architecture (Clean, CQRS-lite)
-Shopping.Basket.sln
-|-- Shopping.Basket.API                  # Minimal API, DI wiring, endpoints
-|--  |_ Program.cs
-|-- Shopping.Basket.Application          # CQRS + mediator + ports 
-|  |_ Abstractions/ (ICommand/IQuery, handlers, IMediator, ports)
-|  |_ Commands/ CreateBasket + handler
-|  |_ Queries/  GetProducts + handler
-|  |_ Mediator/ SimpleMediator
-|-- Shopping.Basket.Domain               # Entities (Basket, BasketItem)
-|-- Shopping.Basket.Infrastructure       # In-memory adapters
-   |_ Repositories/ InMemoryBasketRepository
-   |_ Services/     CatalogReadService
+- **Shopping.Basket.API**: Minimal API, DI wiring, endpoints ('Program.cs')
+- **Shopping.Basket.Application**: CQRS contracts/handlers, mediator, ports
+  - Abstractions (ICommand/IQuery, handlers, IMediator, ports)
+  - Commands (CreateBasket + handler)
+  - Queries (GetProducts + handler)
+  - Mediator (SimpleMediator)
+- **Shopping.Basket.Domain**: Entities (Basket, BasketItem)
+- **Shopping.Basket.Infrastructure**: In-memory adapters
+  - Repositories (InMemoryBasketRepository)
+  - Services (CatalogReadService)
 
 ## CQRS repository
 - Endpoints call a Mediator which resolves and invokes CommandHandlers or QueryHandlers via DI.
