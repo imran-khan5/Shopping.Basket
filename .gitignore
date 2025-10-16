@@ -1,0 +1,15 @@
+@"
+# Build
+bin/
+obj/
+
+# VS / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.rsuser
+
+# Misc
+*.DotSettings.user
+"@ | Set-Content -Encoding UTF8 .gitignore
