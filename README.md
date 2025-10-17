@@ -1,5 +1,5 @@
 
-# Freemarket FX – Shopping Basket Web API (CQRS, Clean Arhitecture, .NET 8)
+# Shopping Basket Web API (CQRS, Clean Arhitecture, .NET 8)
 
 Web API showing lightweight CQRS separation (Commands/Queries + Handlers) with a simple in-process mediator.
 Storage is in-memory; no external database is required.
